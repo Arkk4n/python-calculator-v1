@@ -10,10 +10,6 @@ computer_cards = []
 for _ in range(2):
     player_cards.append(random.choice(cards))
     computer_cards.append(random.choice(cards))
-print(player_cards)
-print(computer_cards)
-
-
 
 def calculate_score(cards):
     return sum(cards)
@@ -21,6 +17,8 @@ def calculate_score(cards):
 
 player_score = calculate_score(player_cards)
 computer_score = calculate_score(computer_cards)
-print(player_score)
-print(computer_score)
+
+print(f"Your cards: {player_cards}")
+print(f"Your score: {player_score}")
+print(f"Computer first card: {computer_cards[0]}")
 
