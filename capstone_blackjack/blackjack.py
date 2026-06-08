@@ -12,6 +12,9 @@ for _ in range(2):
     computer_cards.append(random.choice(cards))
 
 def calculate_score(cards):
+    if 11 in cards and sum(cards) > 21:
+        cards.remove(11)
+        cards.append(1)
     return sum(cards)
 
 
@@ -21,4 +24,12 @@ computer_score = calculate_score(computer_cards)
 print(f"Your cards: {player_cards}")
 print(f"Your score: {player_score}")
 print(f"Computer first card: {computer_cards[0]}")
+
+if player_score == 21 and len(player_cards)== 2:
+    print("Blackjack!")
+
+
+
+
+
 
