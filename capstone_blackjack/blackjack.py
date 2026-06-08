@@ -12,21 +12,41 @@ for _ in range(2):
     computer_cards.append(random.choice(cards))
 
 def calculate_score(cards):
-    if 11 in cards and sum(cards) > 21:
+    if sum(cards) == 21 and len(cards) == 2:
+        return 0
+    elif 11 in cards and sum(cards) > 21:
         cards.remove(11)
         cards.append(1)
     return sum(cards)
-
-
 player_score = calculate_score(player_cards)
 computer_score = calculate_score(computer_cards)
 
-print(f"Your cards: {player_cards}")
-print(f"Your score: {player_score}")
-print(f"Computer first card: {computer_cards[0]}")
-
-if player_score == 21 and len(player_cards)== 2:
+if player_score == 0:
     print("Blackjack!")
+else:
+    while True:
+        another_card = input("Do you want another card? y/n:")
+        if another_card == "y":
+            player_cards.append(random.choice(cards))
+            player_score = calculate_score(player_cards)
+            print(f"Your cards: {player_cards}")
+            print(f"Your score: {player_score}")
+        if another_card == "n":
+            break
+        if player_score > 21:
+            print("Bust!")
+            break
+
+
+
+
+
+
+
+
+
+
+
 
 
 
