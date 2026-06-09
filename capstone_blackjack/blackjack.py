@@ -37,7 +37,35 @@ else:
             print("Bust!")
             break
 
+if computer_score == 0:
+    print("Blackjack!")
+else:
+    while computer_score < 17:
+        computer_cards.append(random.choice(cards))
+        computer_score = calculate_score(computer_cards)
+        print(f"Computer cards: {computer_cards}")
+        print(f"Computer score: {computer_score}")
+        if computer_score > 21:
+            print("Computer - Bust!")
+            break
+print(f"Your final hand: {player_cards}")
+print(f"Your final score: {player_score}")
 
+print(f"Computer final hand: {computer_cards}")
+print(f"Computer final score: {computer_score}")
+
+if player_score > 21:
+    print("Bust")
+    print("computer wins!")
+elif computer_score > 21:
+    print("Computer Bust")
+    print("your wins!")
+elif computer_score > player_score:
+    print("computer wins!")
+elif player_score > computer_score:
+    print("your wins!")
+else:
+    print("Draw")
 
 
 
